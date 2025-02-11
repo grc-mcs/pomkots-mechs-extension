@@ -1,0 +1,57 @@
+{
+  "gboot": {
+    "sounds": [
+      "pomkotsmechsextension:gboot"
+    ]
+  },
+  "gwalk": {
+    "sounds": [
+      "pomkotsmechsextension:gwalk"
+    ]
+  },
+  "gwalk2": {
+    "sounds": [
+      "pomkotsmechsextension:gwalk2"
+    ]
+  },
+  "bazooka": {
+    "sounds": [
+      "pomkotsmechsextension:bazooka"
+    ]
+  },
+  "dash": {
+    "sounds": [
+      "pomkotsmechsextension:dash"
+    ]
+  },
+  "jump": {
+    "sounds": [
+      "pomkotsmechsextension:jump"
+    ]
+  },
+  "missile": {
+    "sounds": [
+      "pomkotsmechsextension:missile"
+    ]
+  },
+  "saber": {
+    "sounds": [
+      "pomkotsmechsextension:saber"
+    ]
+  },
+  "saberstart": {
+    "sounds": [
+      "pomkotsmechsextension:saberstart"
+    ]
+  },
+  "shoot": {
+    "sounds": [
+      "pomkotsmechsextension:shoot"
+    ]
+  },
+  "start": {
+    "sounds": [
+      "pomkotsmechsextension:start"
+    ]
+  }
+}
