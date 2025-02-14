@@ -299,7 +299,44 @@ public abstract class PmgBaseEntity extends PomkotsVehicleBase {
         //NOP
     }
 
-    protected float[] getShootingAngle(Entity bullet, boolean useLockTarget) {
+    protected float[] getShootingAngle(Entity bullet, boolean useDeviation) {
+        var targetPos = getTargetPos(useDeviation);
+        var bulletPos = bullet.position();
+
+        Vec3 bulletDir = targetPos.subtract(bulletPos).normalize();
+
+        float yaw = (float) (Math.atan2(-bulletDir.x, bulletDir.z) * (180.0 / Math.PI));
+        float pitch = (float) (Math.asin(-bulletDir.y) * (180.0 / Math.PI));
+
+        return new float[]{pitch, yaw};
+    }
+
+    protected Vec3 getTargetPos(boolean useDeviation) {
+        Vec3 targetPos;
+
+        Entity lockTarget = this.lockTargets.getLockTargetHard();
+        if (lockTarget != null) {
+            if (useDeviation) {
+                targetPos = lockTarget.getBoundingBox().getCenter().add(lockTarget.getDeltaMovement()).add(lockTarget.getDeltaMovement());
+            } else {
+                targetPos = lockTarget.getBoundingBox().getCenter();
+            }
+        } else {
+            targetPos = getCameraTargetPosition(this.getDrivingPassenger());
+            targetPos = new Vec3(targetPos.x, targetPos.y + this.getPassengersRidingOffset()/2, targetPos.z);
+        }
+
+        return targetPos;
+    }
+
+    protected Vec3 getCameraTargetPosition(Entity cameraEntity) {
+        Vec3 cameraPos = cameraEntity.getEyePosition();
+        Vec3 cameraDirection = cameraEntity.getLookAngle().normalize();
+
+        return cameraPos.add(cameraDirection.scale(100));
+    }
+
+    protected float[] getShootingAngle2(Entity bullet, boolean useLockTarget) {
         double xRot = 0;
         double yRot = 0;
 
@@ -664,9 +701,9 @@ public abstract class PmgBaseEntity extends PomkotsVehicleBase {
     public Vec3 getDismountLocationForPassenger(LivingEntity passenger) {
         super.getDismountLocationForPassenger(passenger);
 
-        float height;
+        double height;
         if (this.isMainMode()) {
-            height =  15.5F;
+            height =  getPassengersRidingOffset();
         } else {
             height =  5.5F;
         }
@@ -676,6 +713,13 @@ public abstract class PmgBaseEntity extends PomkotsVehicleBase {
     @Override
     public boolean hurt(DamageSource source, float amount) {
         return super.hurt(source, amount * 0.1F);
+    }
+
+    @Override
+    public void knockback(double impact, double x, double z) {
+        if (impact >= 0.5F) {
+            super.knockback(impact, x, z);
+        }
     }
 
     @Override
@@ -718,5 +762,15 @@ public abstract class PmgBaseEntity extends PomkotsVehicleBase {
 
     public void setMainCameraPosition(Vec3 pos) {
         this.mainCameraPosition = pos;
+    }
+
+    @Override
+    public boolean isAffectedByFluids() {
+        return false;
+    }
+
+    @Override
+    public int decreaseAirSupply(int air) {
+        return 0;
     }
 }

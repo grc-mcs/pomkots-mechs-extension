@@ -45,11 +45,11 @@ public class PomkotsMechsExtension {
 
 	public static final RegistrySupplier<EntityType<Pmgx01Entity>> PMGX01 = registerEntityType("pmgx01", Pmgx01Entity::new, MobCategory.CREATURE, 10F, 24F);
 
-	public static final RegistrySupplier<EntityType<Pmac01Entity>> PMAC01 = registerEntityType("pmac01", Pmac01Entity::new, MobCategory.CREATURE, 4F, 10F);
-	public static final RegistrySupplier<EntityType<Pmac01cEntity>> PMAC01C = registerEntityType("pmac01c", Pmac01cEntity::new, MobCategory.CREATURE, 4F, 10F);
+	public static final RegistrySupplier<EntityType<Pmac01Entity>> PMAC01 = registerEntityType("pmac01", Pmac01Entity::new, MobCategory.CREATURE, 4F, 9F);
+	public static final RegistrySupplier<EntityType<Pmac01cEntity>> PMAC01C = registerEntityType("pmac01c", Pmac01cEntity::new, MobCategory.CREATURE, 4F, 9F);
 
-	public static final RegistrySupplier<EntityType<Pmac02Entity>> PMAC02 = registerEntityType("pmac02", Pmac02Entity::new, MobCategory.CREATURE, 4F, 10F);
-	public static final RegistrySupplier<EntityType<Pmac02cEntity>> PMAC02C = registerEntityType("pmac02c", Pmac02cEntity::new, MobCategory.CREATURE, 4F, 10F);
+	public static final RegistrySupplier<EntityType<Pmac02Entity>> PMAC02 = registerEntityType("pmac02", Pmac02Entity::new, MobCategory.CREATURE, 4F, 9F);
+	public static final RegistrySupplier<EntityType<Pmac02cEntity>> PMAC02C = registerEntityType("pmac02c", Pmac02cEntity::new, MobCategory.CREATURE, 4F, 9F);
 
 	// Projectiles
 	public static final RegistrySupplier<EntityType<MissileHorizontalEntity>> MISSILE = registerEntityType("missile", MissileHorizontalEntity::new, MobCategory.MISC, 1F, 1F);

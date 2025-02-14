@@ -116,7 +116,7 @@ public class MissileHorizontalEntity  extends MissileBaseEntity {
     }
 
     protected int getSeekRange() {
-        return 40;
+        return 60;
     }
 
     protected float getMaxRotationAnglePerTick() {

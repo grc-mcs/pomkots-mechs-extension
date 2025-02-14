@@ -275,4 +275,9 @@ public class Pmgz03Entity extends PmgBaseEntity {
     protected float getJumpContinueSpped() {
         return 2F;
     }
+
+    @Override
+    public double getPassengersRidingOffset() {
+        return 12.5F;
+    }
 }

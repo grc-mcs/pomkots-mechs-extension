@@ -49,7 +49,7 @@ public class Pmac01Entity extends PmaBaseEntity {
 
     @Override
     protected void registerCombatActions() {
-        this.actionController.registerAction(ACT_SHOOT, new Action(20, 9, 11), ActionController.ActionType.R_ARM_MAIN);
+        this.actionController.registerAction(ACT_SHOOT, new Action(20, 3, 7), ActionController.ActionType.R_ARM_MAIN);
         this.actionController.registerAction(ACT_GATLING, new Action(0, 7, 2), ActionController.ActionType.L_ARM_MAIN);
         this.actionController.registerAction(ACT_MISSILE_RIGHT, new Action(120, 9, 11), ActionController.ActionType.R_SHL_MAIN);
         this.actionController.registerAction(ACT_MISSILE_LEFT, new Action(120, 2, 14), ActionController.ActionType.L_SHL_MAIN);
@@ -100,8 +100,8 @@ public class Pmac01Entity extends PmaBaseEntity {
 
             be.setPos(offset.add(muzzlPos));
 
-            float[] angle = getShootingAngle(be, false);
-            be.shootFromRotation(be, angle[0], angle[1], this.getFallFlyingTicks(), CombatBalance.BASE_SPEED_BEAM_LARGE, 0F);
+            float[] angle = getShootingAngle(be, true);
+            be.shootFromRotation(be, angle[0], angle[1], this.getFallFlyingTicks(), CombatBalance.BASE_SPEED_AC_BULLETS, 0F);
 
             level.addFreshEntity(be);
         }
@@ -123,7 +123,7 @@ public class Pmac01Entity extends PmaBaseEntity {
 
             float[] angle = getShootingAngle(be, true);
 
-            be.shootFromRotation(be, angle[0], angle[1], this.getFallFlyingTicks(), CombatBalance.BASE_SPEED_MACHINEGUN, 1F);
+            be.shootFromRotation(be, angle[0], angle[1], this.getFallFlyingTicks(), CombatBalance.BASE_SPEED_AC_BULLETS, 1F);
 
             level.addFreshEntity(be);
         } else {
@@ -246,7 +246,7 @@ public class Pmac01Entity extends PmaBaseEntity {
 
     @Override
     protected float getRunSpeed() {
-        return 2.5F;
+        return 2.2F;
     }
 
     @Override

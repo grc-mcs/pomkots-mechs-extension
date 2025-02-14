@@ -21,4 +21,6 @@ public class CombatBalance {
     public static final float BASE_SPEED_MACHINEGUN = 2.5F;
 
     public static final int BASE_DAMAGE_SABER = BASE_DAMAGE * 10;
+
+    public static final float BASE_SPEED_AC_BULLETS = 2.7F;
 }

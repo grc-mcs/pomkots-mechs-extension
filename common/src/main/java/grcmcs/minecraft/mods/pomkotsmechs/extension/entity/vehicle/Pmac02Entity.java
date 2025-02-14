@@ -112,8 +112,8 @@ public class Pmac02Entity extends PmaBaseEntity {
 
             be.setPos(offset.add(muzzlPos));
 
-            float[] angle = getShootingAngle(be, false);
-            be.shootFromRotation(be, angle[0], angle[1], this.getFallFlyingTicks(), CombatBalance.BASE_SPEED_BEAM, 0F);
+            float[] angle = getShootingAngle(be, true);
+            be.shootFromRotation(be, angle[0], angle[1], this.getFallFlyingTicks(), CombatBalance.BASE_SPEED_AC_BULLETS, 0F);
 
             level.addFreshEntity(be);
         }
@@ -135,8 +135,8 @@ public class Pmac02Entity extends PmaBaseEntity {
 
                 be.setPos(offset.add(muzzlPos));
 
-                float[] angle = getShootingAngle(be, false);
-                be.shootFromRotation(be, angle[0], angle[1], this.getFallFlyingTicks(), CombatBalance.BASE_SPEED_BEAM, 0F);
+                float[] angle = getShootingAngle(be, true);
+                be.shootFromRotation(be, angle[0], angle[1], this.getFallFlyingTicks(), CombatBalance.BASE_SPEED_AC_BULLETS, 0F);
 
                 level.addFreshEntity(be);
 
@@ -231,7 +231,7 @@ public class Pmac02Entity extends PmaBaseEntity {
 
     @Override
     protected float getRunSpeed() {
-        return 2.5F;
+        return 2.2F;
     }
 
     @Override
