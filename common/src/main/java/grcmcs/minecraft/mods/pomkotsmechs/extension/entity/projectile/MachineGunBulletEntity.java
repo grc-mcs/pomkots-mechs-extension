@@ -47,7 +47,7 @@ public class MachineGunBulletEntity extends PomkotsThrowableProjectile implement
 
     @Override
     public void tick() {
-        this.setNoGravity(true);
+//        this.setNoGravity(true);
 
         // 弾速が早すぎると、ティック間にすり抜けちゃうのでレイキャスティングで補完
         var hitResult = ProjectileUtil.raycastBoundingCheck(this);
@@ -59,6 +59,7 @@ public class MachineGunBulletEntity extends PomkotsThrowableProjectile implement
 
         var vel = this.getDeltaMovement();
         this.setPos(this.getX() + vel.x(), this.getY() + vel.y(), this.getZ() + vel.z());
+//        this.hasImpulse = true;
 
         if(this.lifeTicks++ >= MAX_LIFE_TICKS) {
             this.discard();

@@ -29,7 +29,7 @@ public class BeamLargeEntity extends PomkotsThrowableProjectile implements GeoEn
     private int lifeTicks = 0;
     private int damage;
     private LivingEntity shooter = null;
-    private float explosionScale = 30;
+    private float explosionScale = 20;
 
     public BeamLargeEntity(EntityType<? extends ThrowableProjectile> entityType, Level level) {
         this(entityType, level, null);
@@ -70,10 +70,11 @@ public class BeamLargeEntity extends PomkotsThrowableProjectile implements GeoEn
 
         super.tick();
 
-        this.updateRotationBasedOnVelocity();
+//        this.updateRotationBasedOnVelocity();
 
         var vel = this.getDeltaMovement();
         this.setPos(this.getX() + vel.x(), this.getY() + vel.y(), this.getZ() + vel.z());
+        this.hasImpulse = true;
 
         if(this.lifeTicks++ >= MAX_LIFE_TICKS) {
             this.discard();

@@ -68,10 +68,9 @@ public class BulletLargeEntity extends PomkotsThrowableProjectile implements Geo
 
         super.tick();
 
-        this.updateRotationBasedOnVelocity();
-
         var vel = this.getDeltaMovement();
         this.setPos(this.getX() + vel.x(), this.getY() + vel.y(), this.getZ() + vel.z());
+        this.hasImpulse = true;
 
         if(this.lifeTicks++ >= MAX_LIFE_TICKS) {
             this.discard();

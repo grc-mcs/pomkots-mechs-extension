@@ -313,6 +313,8 @@ public abstract class PmgBaseEntity extends PomkotsVehicleBase {
 
     protected Vec3 getTargetPos(boolean useDeviation) {
         Vec3 targetPos;
+        //仮
+        useDeviation = true;
 
         Entity lockTarget = this.lockTargets.getLockTargetHard();
         if (lockTarget != null) {
